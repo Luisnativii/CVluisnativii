@@ -234,15 +234,26 @@ function App() {
             description="Each card can link to Google Drive, a PDF file, or a verification page once you share the real certificates."
             icon={sectionIcons.certifications}
           />
-          <div className="card-grid three">
+          <div className="card-grid three certification-grid">
             {certifications.map((certification) => (
               <article className="certificate-card" key={certification.name}>
+                <a
+                  className="certificate-preview"
+                  href={certification.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${certification.name} certificate`}
+                >
+                  <img src={certification.preview} alt={`${certification.name} certificate preview`} />
+                </a>
                 <span className="card-period">{certification.date}</span>
                 <h3>{certification.name}</h3>
                 <p>{certification.issuer}</p>
                 <a
                   className={`card-link ${certification.link === '#' ? 'is-disabled' : ''}`}
                   href={certification.link}
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Open credential
                   <ArrowUpRight size={16} />

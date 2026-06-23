@@ -389,9 +389,40 @@ a {
 .project-card,
 .certificate-card {
   display: flex;
-  min-height: 300px;
   flex-direction: column;
   padding: 24px;
+}
+
+.project-card {
+  min-height: 300px;
+}
+
+.certificate-card {
+  min-height: 420px;
+}
+
+.certificate-preview {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+  margin: -8px -8px 18px;
+  border: 1px solid rgba(221, 233, 247, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.certificate-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.certificate-preview:hover img {
+  filter: brightness(1.05);
+  transform: scale(1.025);
 }
 
 .card-period {
@@ -489,6 +520,10 @@ a {
   .card-grid.three {
     grid-template-columns: 1fr;
   }
+
+  .card-grid.three.certification-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 620px) {
@@ -539,6 +574,10 @@ a {
   .project-card,
   .certificate-card {
     padding: 20px;
+  }
+
+  .card-grid.three.certification-grid {
+    grid-template-columns: 1fr;
   }
 
   .info-card {

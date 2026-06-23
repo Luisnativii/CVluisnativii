@@ -18,7 +18,7 @@ export const profile = {
   availability: 'Open to remote opportunities and relocation worldwide',
   email: 'luis.nativi2018@gmail.com',
   github: 'https://github.com/Luisnativii',
-  linkedin: '#',
+  linkedin: 'https://www.linkedin.com/in/luis-nativ%C3%AD-b64b11202',
   cvUrl: '#',
   photo: '/luis-nativi-claude.png',
 };
@@ -102,22 +102,39 @@ export const projects = [
 
 export const certifications = [
   {
-    name: 'Business Central Development Fundamentals',
-    issuer: 'Placeholder Academy',
-    date: 'Coming soon',
-    link: '#',
+    name: 'Python Programming Basics',
+    issuer: 'Huawei ICT Academy',
+    date: 'May 2026',
+    link: '/certificates/Python-Programming-Basics.pdf',
+    preview: '/certificates/previews/python-programming-basics.png',
   },
   {
-    name: 'React Professional Foundations',
-    issuer: 'Placeholder Platform',
-    date: 'Coming soon',
-    link: '#',
+    name: 'Complete Python Course 2024: From Zero to Master with Python 3',
+    issuer: 'Udemy',
+    date: 'Jul 2024',
+    link: '/certificates/PythonUdemy.pdf',
+    preview: '/certificates/previews/python-udemy.png',
   },
   {
-    name: 'Docker for Developers',
-    issuer: 'Placeholder Platform',
-    date: 'Coming soon',
-    link: '#',
+    name: 'Critical Thinking for Using Artificial Intelligence',
+    issuer: 'Platzi',
+    date: 'May 2026',
+    link: '/certificates/diploma-pensamiento-critico-ia.pdf',
+    preview: '/certificates/previews/ai-critical-thinking-platzi.png',
+  },
+  {
+    name: 'Math Basics',
+    issuer: 'Huawei ICT Academy',
+    date: 'May 2026',
+    link: '/certificates/Math-Basics.pdf',
+    preview: '/certificates/previews/math-basics.png',
+  },
+  {
+    name: 'Introduction to UI Design',
+    issuer: 'Universidad Centroamericana Jose Simeon Canas (UCA)',
+    date: 'Sep 2023',
+    link: '/certificates/UI.pdf',
+    preview: '/certificates/previews/ui-design.png',
   },
 ];
 
