@@ -1,7 +1,9 @@
+import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowUpRight,
   Download,
   Github,
+  Languages,
   Linkedin,
   Mail,
   MapPin,
@@ -9,15 +11,11 @@ import {
   Sparkles,
 } from 'lucide-react';
 import {
-  certifications,
-  education,
-  experience,
   focusAreas,
+  Language,
+  localizedContent,
   profile,
-  projects,
   sectionIcons,
-  stats,
-  summary,
 } from './data';
 
 function SectionHeader({
@@ -46,45 +44,88 @@ function SectionHeader({
 }
 
 function App() {
+  const [language, setLanguage] = useState<Language>('en');
+  const content = localizedContent[language];
+  const nextLanguage = language === 'en' ? 'es' : 'en';
+
+  const translatedFocusAreas = useMemo(
+    () =>
+      focusAreas.map((area) => {
+        if (language === 'en') {
+          return area;
+        }
+
+        const labels: Record<string, string> = {
+          'AL Development': 'Desarrollo AL',
+          'ERP Workflow Automation': 'Automatizacion de flujos ERP',
+          'SOAP XML Integrations': 'Integraciones SOAP XML',
+          'Dockerized Applications': 'Aplicaciones dockerizadas',
+          'GitHub, Jira & Delivery Flow': 'GitHub, Jira y flujo de entrega',
+        };
+
+        return { ...area, label: labels[area.label] ?? area.label };
+      }),
+    [language],
+  );
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.title = content.documentTitle;
+  }, [content.documentTitle, language]);
+
   return (
     <main className="min-h-screen overflow-hidden bg-ink text-frost">
       <div className="page-shell">
-        <nav className="nav-bar" aria-label="Primary navigation">
-          <a href="#top" className="brand-mark" aria-label="Go to top">
+        <nav className="nav-bar" aria-label={content.nav.aria}>
+          <a href="#top" className="brand-mark" aria-label={content.nav.top}>
             LN
           </a>
           <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#certifications">Certifications</a>
+            <a href="#about">{content.nav.about}</a>
+            <a href="#education">{content.nav.education}</a>
+            <a href="#experience">{content.nav.experience}</a>
+            <a href="#projects">{content.nav.projects}</a>
+            <a href="#certifications">{content.nav.certifications}</a>
           </div>
+          <button
+            className={`language-switch ${language === 'es' ? 'is-spanish' : ''}`}
+            type="button"
+            onClick={() => setLanguage(nextLanguage)}
+            aria-label={`${content.actions.language}: ${content.actions.languageTarget}`}
+          >
+            <Languages size={17} />
+            <span className="language-current">{content.actions.languageShort}</span>
+            <span className="language-track" aria-hidden="true">
+              <span className="language-thumb" />
+            </span>
+            <span>{content.actions.languageTarget}</span>
+          </button>
         </nav>
 
         <section id="top" className="hero-section">
           <div className="hero-copy">
             <div className="availability">
               <Sparkles size={16} />
-              {profile.availability}
+              {content.profile.availability}
             </div>
             <h1>{profile.name}</h1>
-            <p className="hero-title">{profile.title}</p>
-            <p className="hero-summary">{summary}</p>
+            <p className="hero-title">{content.profile.title}</p>
+            <p className="hero-summary">{content.hero.summary}</p>
             <div className="hero-meta">
               <span>
                 <MapPin size={16} />
-                {profile.location}
+                {content.profile.location}
               </span>
-              <span>Business Central AL</span>
-              <span>ERP Automation</span>
+              {content.hero.meta.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
             </div>
             <div className="hero-actions">
               <a className="primary-button" href={`mailto:${profile.email}`}>
                 <Mail size={18} />
-                Email me
+                {content.actions.email}
               </a>
-              <a className="icon-button" href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+              <a className="icon-button" href={profile.github} target="_blank" rel="noreferrer" aria-label={content.actions.github}>
                 <Github size={19} />
               </a>
               <a
@@ -92,23 +133,23 @@ function App() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="LinkedIn"
+                aria-label={content.actions.linkedin}
               >
                 <Linkedin size={19} />
               </a>
               <a className={`ghost-button ${profile.cvUrl === '#' ? 'is-disabled' : ''}`} href={profile.cvUrl}>
                 <Download size={18} />
-                CV
+                {content.actions.cv}
               </a>
             </div>
           </div>
 
-          <div className="portrait-panel" aria-label="Portrait of Luis Nativi Claude">
+          <div className="portrait-panel" aria-label={content.profile.portraitAlt}>
             <div className="portrait-frame">
-              <img src={profile.photo} alt="Luis Nativi Claude" />
+              <img src={profile.photo} alt={content.profile.portraitAlt} />
             </div>
             <div className="portrait-caption">
-              <span>Open to global teams</span>
+              <span>{content.profile.portraitCaption}</span>
               <MoveRight size={16} />
             </div>
           </div>
@@ -116,25 +157,19 @@ function App() {
 
         <section id="about" className="content-section">
           <SectionHeader
-            eyebrow="About me"
-            title="Reliable software for real business workflows."
-            description="I bring technical curiosity, teamwork, and a delivery mindset to systems that need to be useful beyond the first release."
+            eyebrow={content.sections.about.eyebrow}
+            title={content.sections.about.title}
+            description={content.sections.about.description}
             icon={Sparkles}
           />
           <div className="about-grid">
             <div className="about-card">
-              <p>
-                I am a Software Developer currently working with Microsoft Dynamics 365 Business Central and AL. My
-                professional focus is building maintainable ERP functionality, automating operational workflows, and
-                translating business needs into reliable technical solutions.
-              </p>
-              <p>
-                I adapt quickly to team environments, enjoy learning new topics, and care deeply about delivering
-                quality work that remains clear, scalable, and valuable over time.
-              </p>
+              {content.about.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
             <div className="stats-grid">
-              {stats.map((stat) => (
+              {content.stats.map((stat) => (
                 <div className="stat-card" key={stat.label}>
                   <strong>{stat.value}</strong>
                   <span>{stat.label}</span>
@@ -143,7 +178,7 @@ function App() {
             </div>
           </div>
           <div className="focus-grid">
-            {focusAreas.map(({ label, icon: Icon }) => (
+            {translatedFocusAreas.map(({ label, icon: Icon }) => (
               <div className="focus-card" key={label}>
                 <Icon size={20} />
                 <span>{label}</span>
@@ -154,13 +189,13 @@ function App() {
 
         <section id="education" className="content-section">
           <SectionHeader
-            eyebrow="Education"
-            title="Academic foundation in engineering."
-            description="Formal computer engineering studies paired with practical business software experience."
+            eyebrow={content.sections.education.eyebrow}
+            title={content.sections.education.title}
+            description={content.sections.education.description}
             icon={sectionIcons.education}
           />
           <div className="card-grid single">
-            {education.map(({ degree, institution, period, details, icon: Icon }) => (
+            {content.education.map(({ degree, institution, period, details, icon: Icon }) => (
               <article className="info-card" key={degree}>
                 <Icon className="card-icon" size={24} />
                 <div>
@@ -176,13 +211,13 @@ function App() {
 
         <section id="experience" className="content-section">
           <SectionHeader
-            eyebrow="Experience"
-            title="Hands-on roles across ERP, data, and reporting."
-            description="Experience connected to operational systems, database workflows, dashboards, and process automation."
+            eyebrow={content.sections.experience.eyebrow}
+            title={content.sections.experience.title}
+            description={content.sections.experience.description}
             icon={sectionIcons.experience}
           />
           <div className="card-grid">
-            {experience.map(({ role, company, period, highlights, icon: Icon }) => (
+            {content.experience.map(({ role, company, period, highlights, icon: Icon }) => (
               <article className="info-card" key={role}>
                 <Icon className="card-icon" size={24} />
                 <div>
@@ -202,13 +237,13 @@ function App() {
 
         <section id="projects" className="content-section">
           <SectionHeader
-            eyebrow="Projects"
-            title="Selected work, ready for real case studies."
-            description="These are temporary examples. They are structured so your real projects can be dropped in cleanly."
+            eyebrow={content.sections.projects.eyebrow}
+            title={content.sections.projects.title}
+            description={content.sections.projects.description}
             icon={sectionIcons.projects}
           />
           <div className="card-grid three">
-            {projects.map((project) => (
+            {content.projects.map((project) => (
               <article className="project-card" key={project.name}>
                 <span className="card-period">{project.type}</span>
                 <h3>{project.name}</h3>
@@ -219,7 +254,7 @@ function App() {
                   ))}
                 </div>
                 <a className={`card-link ${project.link === '#' ? 'is-disabled' : ''}`} href={project.link}>
-                  View project
+                  {content.actions.viewProject}
                   <ArrowUpRight size={16} />
                 </a>
               </article>
@@ -229,22 +264,22 @@ function App() {
 
         <section id="certifications" className="content-section final-section">
           <SectionHeader
-            eyebrow="Certifications"
-            title="Credentials prepared for PDF links."
-            description="Each card can link to Google Drive, a PDF file, or a verification page once you share the real certificates."
+            eyebrow={content.sections.certifications.eyebrow}
+            title={content.sections.certifications.title}
+            description={content.sections.certifications.description}
             icon={sectionIcons.certifications}
           />
           <div className="card-grid three certification-grid">
-            {certifications.map((certification) => (
+            {content.certifications.map((certification) => (
               <article className="certificate-card" key={certification.name}>
                 <a
                   className="certificate-preview"
                   href={certification.link}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`Open ${certification.name} certificate`}
+                  aria-label={`${content.actions.openCredential}: ${certification.name}`}
                 >
-                  <img src={certification.preview} alt={`${certification.name} certificate preview`} />
+                  <img src={certification.preview} alt={`${certification.name} preview`} />
                 </a>
                 <span className="card-period">{certification.date}</span>
                 <h3>{certification.name}</h3>
@@ -255,7 +290,7 @@ function App() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Open credential
+                  {content.actions.openCredential}
                   <ArrowUpRight size={16} />
                 </a>
               </article>
