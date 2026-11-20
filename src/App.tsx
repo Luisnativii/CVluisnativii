@@ -125,7 +125,7 @@ function App() {
               >
                 <Linkedin size={19} />
               </a>
-              <a className={`ghost-button ${profile.cvUrl === '#' ? 'is-disabled' : ''}`} href={profile.cvUrl}>
+              <a className="ghost-button" href={profile.cvUrl} download>
                 <Download size={18} />
                 {content.actions.cv}
               </a>

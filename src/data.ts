@@ -12,7 +12,7 @@ export const profile = {
   email: 'luis.nativi2018@gmail.com',
   github: 'https://github.com/Luisnativii',
   linkedin: 'https://www.linkedin.com/in/luis-nativ%C3%AD-b64b11202',
-  cvUrl: '#',
+  cvUrl: '/CV-Luis-Nativi-Claude.pdf',
   photo: '/luis-nativi-claude.png',
 };
 
@@ -44,7 +44,7 @@ export const localizedContent = {
     },
     actions: {
       email: 'Email me',
-      cv: 'CV',
+      cv: 'Download CV (ES)',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       openCredential: 'Open credential',
@@ -191,7 +191,7 @@ export const localizedContent = {
     },
     actions: {
       email: 'Escríbeme',
-      cv: 'CV',
+      cv: 'Descargar CV',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       openCredential: 'Abrir certificado',
