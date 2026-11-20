@@ -378,7 +378,8 @@ a {
 .info-card,
 .project-card,
 .certificate-card,
-.focus-card {
+.technology-card,
+.github-card {
   border: 1px solid rgba(221, 233, 247, 0.12);
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.032));
@@ -400,27 +401,132 @@ a {
   margin-top: 16px;
 }
 
-.focus-grid {
+.technology-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+  align-items: start;
   gap: 12px;
-  margin-top: 18px;
 }
 
-.focus-card {
+.technology-card summary {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-height: 76px;
+  min-height: 60px;
   padding: 16px;
   color: rgba(221, 233, 247, 0.82);
   font-weight: 700;
+  cursor: pointer;
 }
 
-.focus-card svg,
+.technology-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.technology-card summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  flex: 0 0 auto;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.technology-card[open] summary::after {
+  transform: rotate(225deg);
+}
+
+.technology-card summary:hover,
+.technology-card[open] summary {
+  color: #fff;
+}
+
+.technology-card p {
+  margin: 0;
+  padding: 0 16px 16px;
+  color: rgba(221, 233, 247, 0.76);
+  line-height: 1.65;
+}
+
+.technology-card svg,
 .card-icon {
   flex: 0 0 auto;
   color: #80b9d5;
+}
+
+.github-card {
+  padding: clamp(14px, 3vw, 26px);
+}
+
+.github-card > p {
+  margin: 0 0 16px;
+}
+
+.github-scroll {
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.github-calendar {
+  display: grid;
+  min-width: 690px;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-template-rows: 22px repeat(7, auto);
+  gap: 3px;
+}
+
+.github-calendar-day {
+  position: relative;
+}
+
+.github-month {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  color: rgba(221, 233, 247, 0.72);
+  font-size: 0.72rem;
+}
+
+.github-cell {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: #252d3b;
+}
+
+.github-cell[data-level='1'] { background: #155240; }
+.github-cell[data-level='2'] { background: #207d5d; }
+.github-cell[data-level='3'] { background: #32ae7b; }
+.github-cell[data-level='4'] { background: #64dba2; }
+
+.github-footer,
+.github-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.github-footer {
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.github-footer .card-link {
+  margin: 0;
+}
+
+.github-legend {
+  gap: 4px;
+  color: rgba(221, 233, 247, 0.72);
+  font-size: 0.76rem;
+}
+
+.github-legend .github-cell {
+  width: 11px;
 }
 
 .card-grid {
@@ -572,7 +678,6 @@ a {
     max-width: 520px;
   }
 
-  .focus-grid,
   .card-grid,
   .card-grid.three {
     grid-template-columns: 1fr;

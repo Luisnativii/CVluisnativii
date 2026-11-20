@@ -1,12 +1,9 @@
 import {
   Award,
-  Boxes,
   BriefcaseBusiness,
   Code2,
   Database,
-  FileCode2,
   GraduationCap,
-  LayoutDashboard,
 } from 'lucide-react';
 
 export const profile = {
@@ -126,14 +123,20 @@ export const localizedContent = {
       {
         name: 'EliteDriver',
         type: 'Team project',
-        description: 'Vehicle rental platform with a catalog, availability checks, and reservations. The stack runs with Docker Compose.',
-        tech: ['React', 'Spring Boot', 'PostgreSQL', 'Docker Compose'],
+        description: 'Vehicle rental platform with a catalog, availability checks, and reservations. It runs with Docker Compose and integrates Wompi for card payments in test mode.',
+        tech: ['React', 'Spring Boot', 'PostgreSQL', 'Docker Compose', 'Wompi'],
       },
       {
         name: 'Social Service Hours Platform',
         type: 'Software project',
         description: 'Application for recording and tracking social service hours, with a Go API, a web interface, and automated checks in Docker.',
         tech: ['Go', 'TypeScript', 'PostgreSQL', 'Docker'],
+      },
+      {
+        name: 'Professional portfolio',
+        type: 'Personal project',
+        description: 'Bilingual portfolio built with React and TypeScript and automatically deployed to Vercel from GitHub.',
+        tech: ['React', 'TypeScript', 'Vite', 'Vercel'],
       },
     ],
     certifications: [
@@ -273,14 +276,20 @@ export const localizedContent = {
       {
         name: 'EliteDriver',
         type: 'Proyecto en equipo',
-        description: 'Plataforma de alquiler de vehículos con catálogo, consulta de disponibilidad y gestión de reservas. La aplicación se ejecuta con Docker Compose.',
-        tech: ['React', 'Spring Boot', 'PostgreSQL', 'Docker Compose'],
+        description: 'Plataforma de alquiler de vehículos con catálogo, consulta de disponibilidad y gestión de reservas. Se ejecuta con Docker Compose e integra Wompi para pagos con tarjeta en modo de pruebas.',
+        tech: ['React', 'Spring Boot', 'PostgreSQL', 'Docker Compose', 'Wompi'],
       },
       {
         name: 'Plataforma de servicio social',
         type: 'Proyecto de software',
         description: 'Aplicación para registrar y dar seguimiento a horas de servicio social, con una API en Go, una interfaz web y comprobaciones automatizadas en Docker.',
         tech: ['Go', 'TypeScript', 'PostgreSQL', 'Docker'],
+      },
+      {
+        name: 'Portafolio profesional',
+        type: 'Proyecto personal',
+        description: 'Portafolio bilingüe desarrollado con React y TypeScript, con despliegue automático en Vercel desde GitHub.',
+        tech: ['React', 'TypeScript', 'Vite', 'Vercel'],
       },
     ],
     certifications: [
@@ -322,15 +331,6 @@ export const localizedContent = {
     ],
   },
 } as const;
-
-export const focusAreas = [
-  { en: 'Business Central and AL', es: 'Business Central y AL', icon: Boxes },
-  { en: 'LS Retail POS and electronic invoicing', es: 'Punto de venta LS Retail y facturación electrónica', icon: FileCode2 },
-  { en: 'SQL Server, ETL and BI', es: 'SQL Server, ETL e inteligencia de negocios', icon: Database },
-  { en: 'SOAP/XML endpoints', es: 'Endpoints SOAP/XML', icon: Code2 },
-  { en: 'Azure DevOps and Jira', es: 'Azure DevOps y Jira', icon: LayoutDashboard },
-  { en: 'AI-assisted CLI development and code review', es: 'Programación con IA vía CLI y revisión de código', icon: Code2 },
-];
 
 export const sectionIcons = {
   education: GraduationCap,

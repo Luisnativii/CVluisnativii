@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   ArrowUpRight,
+  Code2,
   Download,
   Github,
   Languages,
@@ -11,12 +12,13 @@ import {
   Sparkles,
 } from 'lucide-react';
 import {
-  focusAreas,
   Language,
   localizedContent,
   profile,
   sectionIcons,
 } from './data';
+import { GitHubActivity } from './GitHubActivity';
+import { Technologies } from './Technologies';
 
 function SectionHeader({
   eyebrow,
@@ -46,9 +48,11 @@ function SectionHeader({
 }
 
 function App() {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('es');
   const content = localizedContent[language];
   const nextLanguage = language === 'en' ? 'es' : 'en';
+  const technologyTitle = language === 'es' ? 'Tecnologías' : 'Technologies';
+  const githubTitle = language === 'es' ? 'Actividad en GitHub' : 'GitHub activity';
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -67,6 +71,8 @@ function App() {
             <a href="#experience">{content.nav.experience}</a>
             <a href="#education">{content.nav.education}</a>
             <a href="#projects">{content.nav.projects}</a>
+            <a href="#technologies">{technologyTitle}</a>
+            <a href="#github">GitHub</a>
             <a href="#certifications">{content.nav.certifications}</a>
           </div>
           <button
@@ -149,14 +155,6 @@ function App() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <div className="focus-grid">
-            {focusAreas.map(({ en, es, icon: Icon }) => (
-              <div className="focus-card" key={en}>
-                <Icon size={20} />
-                <span>{language === 'en' ? en : es}</span>
-              </div>
-            ))}
-          </div>
         </section>
 
         <section id="experience" className="content-section">
@@ -228,6 +226,21 @@ function App() {
               </article>
             ))}
           </div>
+        </section>
+
+        <section id="technologies" className="content-section">
+          <SectionHeader
+            eyebrow={technologyTitle}
+            title={technologyTitle}
+            description={language === 'es' ? 'Selecciona una tecnología para ver cómo la he usado.' : 'Select a technology to see how I have used it.'}
+            icon={Code2}
+          />
+          <Technologies language={language} />
+        </section>
+
+        <section id="github" className="content-section">
+          <SectionHeader eyebrow="GitHub" title={githubTitle} description="" icon={Github} />
+          <GitHubActivity language={language} />
         </section>
 
         <section id="certifications" className="content-section final-section">
