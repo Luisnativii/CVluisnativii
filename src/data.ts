@@ -7,13 +7,10 @@ import {
   FileCode2,
   GraduationCap,
   LayoutDashboard,
-  PackageCheck,
-  ShieldCheck,
 } from 'lucide-react';
 
 export const profile = {
   name: 'Luis Nativi Claude',
-  title: 'Software Developer',
   location: 'El Salvador',
   email: 'luis.nativi2018@gmail.com',
   github: 'https://github.com/Luisnativii',
@@ -24,16 +21,16 @@ export const profile = {
 
 export const languages = {
   en: 'English',
-  es: 'Espanol',
+  es: 'Español',
 } as const;
 
 export type Language = keyof typeof languages;
 
 export const localizedContent = {
   en: {
-    documentTitle: 'Luis Nativi Claude | Software Developer',
+    documentTitle: 'Luis Nativi Claude | AL Developer | Microsoft Dynamics 365 Business Central',
     profile: {
-      title: 'Software Developer',
+      title: 'AL Developer | Microsoft Dynamics 365 Business Central',
       availability: 'Open to remote opportunities and relocation worldwide',
       location: 'El Salvador',
       portraitAlt: 'Portrait of Luis Nativi Claude',
@@ -53,116 +50,90 @@ export const localizedContent = {
       cv: 'CV',
       github: 'GitHub',
       linkedin: 'LinkedIn',
-      viewProject: 'View project',
       openCredential: 'Open credential',
       language: 'Change language',
       languageShort: 'EN',
       languageTarget: 'ES',
     },
     hero: {
-      summary:
-        'Software Developer focused on building reliable business solutions with a strong sense of ownership, adaptability, and continuous learning. I enjoy working with teams, researching new technologies, and delivering maintainable systems that support long-term project value and operational efficiency.',
-      meta: ['Business Central AL', 'ERP Automation'],
+      summary: 'I build AL extensions for Microsoft Dynamics 365 Business Central, with experience in inventory transfers, LS Retail point of sale, and electronic invoicing.',
+      meta: ['AL Extensions', 'LS Retail POS', 'ERP Automation'],
     },
     sections: {
-      about: {
-        eyebrow: 'About me',
-        title: 'Reliable software for real business workflows.',
-        description:
-          'I bring technical curiosity, teamwork, and a delivery mindset to systems that need to be useful beyond the first release.',
-      },
-      education: {
-        eyebrow: 'Education',
-        title: 'Academic foundation in engineering.',
-        description: 'Formal computer engineering studies paired with practical business software experience.',
-      },
-      experience: {
-        eyebrow: 'Experience',
-        title: 'Hands-on roles across ERP, data, and reporting.',
-        description:
-          'Experience connected to operational systems, database workflows, dashboards, and process automation.',
-      },
-      projects: {
-        eyebrow: 'Projects',
-        title: 'Selected work, ready for real case studies.',
-        description:
-          'These are temporary examples. They are structured so your real projects can be dropped in cleanly.',
-      },
-      certifications: {
-        eyebrow: 'Certifications',
-        title: 'Credentials prepared for PDF links.',
-        description:
-          'Each card can link to Google Drive, a PDF file, or a verification page once you share the real certificates.',
-      },
+      about: { eyebrow: 'About', title: 'ERP development and data analysis', description: 'I work on retail operations, inventory workflows, and reporting.' },
+      education: { eyebrow: 'Education', title: 'Education', description: '' },
+      experience: { eyebrow: 'Experience', title: 'Professional experience', description: '' },
+      projects: { eyebrow: 'Projects', title: 'Selected projects', description: '' },
+      certifications: { eyebrow: 'Certifications', title: 'Certifications', description: '' },
     },
     about: [
-      'I am a Software Developer currently working with Microsoft Dynamics 365 Business Central and AL. My professional focus is building maintainable ERP functionality, automating operational workflows, and translating business needs into reliable technical solutions.',
-      'I adapt quickly to team environments, enjoy learning new topics, and care deeply about delivering quality work that remains clear, scalable, and valuable over time.',
-    ],
-    stats: [
-      { value: '1+', label: 'Year in Business Central' },
-      { value: '2', label: 'Formal roles' },
-      { value: '9th', label: 'Engineering cycle' },
+      'At Farmacia San Nicolás, I rebuilt the inventory transfer workflow used by all stores and warehouses. My work also covers LS Retail point-of-sale development and electronic invoicing.',
+      'My background includes data analysis with SQL Server, ETL, and BI dashboards. I use AI-assisted CLI tools for development and code review.',
     ],
     education: [
       {
-        degree: 'B.S. in Computer Engineering',
-        institution: 'Universidad Centroamericana Jose Simeon Canas (UCA)',
-        period: 'Currently in 9th cycle',
-        details:
-          'Final-year student developing a foundation in software engineering, databases, systems analysis, and project-oriented problem solving.',
+        degree: 'Computer Engineering',
+        institution: 'Universidad Centroamericana José Simeón Cañas (UCA)',
+        period: '2022 – Present',
+        details: 'Currently in the second-to-last semester.',
+        icon: GraduationCap,
+      },
+      {
+        degree: 'High School Diploma',
+        institution: 'Colegio Champagnat',
+        period: '2021',
+        details: '',
         icon: GraduationCap,
       },
     ],
     experience: [
       {
         role: 'Business Central AL Developer',
-        company: 'Departamento de Informatica, Farmacia San Nicolas',
-        period: '1 year',
+        company: 'Farmacia San Nicolás · IT Department',
+        period: 'Sep 2025 – Present',
         highlights: [
-          'Responsible for inventory, warehouse transfer, and transit workflows inside Microsoft Dynamics 365 Business Central.',
-          'Develops accounting-requested improvements that automate operational and administrative processes.',
-          'Creates RDLC reports and ERP customizations aligned with business requirements.',
-          'Implemented a complete inventory transfer flow between sales rooms, warehouses, and transit locations.',
+          'Rebuilt the AL inventory transfer module from business logic through rollout, replacing legacy steps and redesigning the handling of in-transit stock. All company stores and warehouses use the new workflow.',
+          'Develop and customize LS Retail point-of-sale workflows, including electronic invoicing.',
+          'Create and maintain RDLC reports for ERP operations, and work with SQL Server and SOAP/XML endpoints in Business Central.',
+          'Use Azure DevOps for version control and automated Business Central deployments, and Jira to track work.',
         ],
         icon: BriefcaseBusiness,
       },
       {
-        role: 'Junior Database Administrator & Dashboard Developer',
+        role: 'Data Analyst',
         company: 'Pergaminos',
-        period: 'Short-term role',
+        period: 'Dec 2024 – Mar 2025',
         highlights: [
-          'Managed database information for document digitization and warehouse location processes.',
-          'Delivered performance dashboards to monitor staff productivity and operational progress.',
-          'Created optimized queries to locate requested documents by floor and shelf.',
-          'Improved records and database connections to make filtering and search workflows easier.',
+          'Worked with SQL Server and ETL workflows for data preparation.',
+          'Built dashboards in Tableau and Google Data Studio to track team productivity and digitization progress.',
         ],
         icon: Database,
       },
     ],
     projects: [
       {
-        name: 'Inventory Transfer Flow',
-        type: 'Business Central Extension',
-        description:
-          'Placeholder project based on an ERP workflow for transfers between stores, warehouses, and transit locations.',
-        tech: ['AL', 'Business Central', 'RDLC', 'ERP Automation'],
-        link: '#',
+        name: 'Inventory Transfer Module',
+        type: 'Business Central extension',
+        description: 'Rebuilt the workflow for moving inventory between stores and warehouses, including in-transit stock handling. The module is used across the company.',
+        tech: ['AL', 'Business Central', 'Inventory'],
       },
       {
-        name: 'Operations Dashboard',
-        type: 'Data & Reporting',
-        description:
-          'Placeholder dashboard for monitoring team productivity, digitization progress, and document movement.',
-        tech: ['SQL', 'Dashboards', 'Data Modeling'],
-        link: '#',
+        name: 'Electronic Invoicing Prototype',
+        type: 'University team project',
+        description: 'Sales and invoicing prototype that generates electronic documents in PDF and JSON with QR codes and simulates submission to the tax authority.',
+        tech: ['JavaScript', 'Electronic Invoicing'],
       },
       {
-        name: 'SOAP XML Integration',
-        type: 'Integration',
-        description: 'Placeholder integration layer for structured XML communication between business systems.',
-        tech: ['SOAP', 'XML', 'Backend Logic'],
-        link: '#',
+        name: 'EliteDriver',
+        type: 'Team project',
+        description: 'Vehicle rental platform with a catalog, availability checks, and reservations. The stack runs with Docker Compose.',
+        tech: ['React', 'Spring Boot', 'PostgreSQL', 'Docker Compose'],
+      },
+      {
+        name: 'Social Service Hours Platform',
+        type: 'Software project',
+        description: 'Application for recording and tracking social service hours, with a Go API, a web interface, and automated checks in Docker.',
+        tech: ['Go', 'TypeScript', 'PostgreSQL', 'Docker'],
       },
     ],
     certifications: [
@@ -204,139 +175,112 @@ export const localizedContent = {
     ],
   },
   es: {
-    documentTitle: 'Luis Nativi Claude | Desarrollador de Software',
+    documentTitle: 'Luis Nativi Claude | Desarrollador AL | Microsoft Dynamics 365 Business Central',
     profile: {
-      title: 'Desarrollador de Software',
-      availability: 'Disponible para oportunidades remotas y reubicacion internacional',
+      title: 'Desarrollador AL | Microsoft Dynamics 365 Business Central',
+      availability: 'Disponible para oportunidades remotas y reubicación internacional',
       location: 'El Salvador',
       portraitAlt: 'Retrato de Luis Nativi Claude',
       portraitCaption: 'Abierto a equipos globales',
     },
     nav: {
-      aria: 'Navegacion principal',
+      aria: 'Navegación principal',
       top: 'Ir al inicio',
-      about: 'Sobre mi',
-      education: 'Educacion',
+      about: 'Sobre mí',
+      education: 'Educación',
       experience: 'Experiencia',
       projects: 'Proyectos',
       certifications: 'Certificaciones',
     },
     actions: {
-      email: 'Escribeme',
+      email: 'Escríbeme',
       cv: 'CV',
       github: 'GitHub',
       linkedin: 'LinkedIn',
-      viewProject: 'Ver proyecto',
       openCredential: 'Abrir certificado',
       language: 'Cambiar idioma',
       languageShort: 'ES',
       languageTarget: 'EN',
     },
     hero: {
-      summary:
-        'Desarrollador de Software enfocado en construir soluciones empresariales confiables, con sentido de responsabilidad, adaptabilidad y aprendizaje continuo. Disfruto trabajar en equipo, investigar nuevas tecnologias y entregar sistemas mantenibles que aporten valor a largo plazo.',
-      meta: ['Business Central AL', 'Automatizacion ERP'],
+      summary: 'Desarrollo extensiones en AL para Microsoft Dynamics 365 Business Central, con experiencia en traslados de inventario, punto de venta con LS Retail y facturación electrónica.',
+      meta: ['Extensiones AL', 'Punto de venta con LS Retail', 'Automatización ERP'],
     },
     sections: {
-      about: {
-        eyebrow: 'Sobre mi',
-        title: 'Software confiable para flujos reales de negocio.',
-        description:
-          'Aporto curiosidad tecnica, trabajo en equipo y mentalidad de entrega a sistemas que deben seguir siendo utiles despues de su primera version.',
-      },
-      education: {
-        eyebrow: 'Educacion',
-        title: 'Base academica en ingenieria.',
-        description:
-          'Formacion en ingenieria informatica combinada con experiencia practica en software empresarial.',
-      },
-      experience: {
-        eyebrow: 'Experiencia',
-        title: 'Roles practicos en ERP, datos y reporteria.',
-        description:
-          'Experiencia conectada con sistemas operativos, bases de datos, dashboards y automatizacion de procesos.',
-      },
-      projects: {
-        eyebrow: 'Proyectos',
-        title: 'Trabajo seleccionado, listo para casos reales.',
-        description:
-          'Estos son ejemplos temporales. Estan estructurados para reemplazarlos de forma limpia por tus proyectos reales.',
-      },
-      certifications: {
-        eyebrow: 'Certificaciones',
-        title: 'Credenciales disponibles con vista previa.',
-        description:
-          'Cada tarjeta abre el PDF real del certificado para validar la formacion y los logros obtenidos.',
-      },
+      about: { eyebrow: 'Perfil', title: 'Desarrollo ERP y análisis de datos', description: 'Trabajo en procesos de venta, inventario y análisis operativo.' },
+      education: { eyebrow: 'Educación', title: 'Formación académica', description: '' },
+      experience: { eyebrow: 'Experiencia', title: 'Experiencia profesional', description: '' },
+      projects: { eyebrow: 'Proyectos', title: 'Proyectos seleccionados', description: '' },
+      certifications: { eyebrow: 'Certificaciones', title: 'Certificaciones', description: '' },
     },
     about: [
-      'Soy Desarrollador de Software y actualmente trabajo con Microsoft Dynamics 365 Business Central y AL. Mi enfoque profesional es construir funcionalidad ERP mantenible, automatizar flujos operativos y traducir necesidades del negocio en soluciones tecnicas confiables.',
-      'Me adapto rapidamente a entornos de equipo, disfruto aprender temas nuevos y cuido mucho entregar trabajo de calidad que sea claro, escalable y valioso con el tiempo.',
-    ],
-    stats: [
-      { value: '1+', label: 'Ano en Business Central' },
-      { value: '2', label: 'Roles formales' },
-      { value: '9no', label: 'Ciclo de ingenieria' },
+      'En Farmacia San Nicolás reconstruí el flujo de traslados de inventario que utilizan todas las salas de venta y bodegas. También trabajo en el desarrollo para puntos de venta con LS Retail y en facturación electrónica.',
+      'Mi experiencia incluye análisis de datos con SQL Server, procesos ETL y tableros de inteligencia de negocios. Uso herramientas de IA en la terminal para apoyar la programación y la revisión de código.',
     ],
     education: [
       {
-        degree: 'Ingenieria Informatica',
-        institution: 'Universidad Centroamericana Jose Simeon Canas (UCA)',
-        period: 'Actualmente en 9no ciclo',
-        details:
-          'Estudiante en etapa final, desarrollando bases en ingenieria de software, bases de datos, analisis de sistemas y resolucion de problemas orientada a proyectos.',
+        degree: 'Ingeniería Informática',
+        institution: 'Universidad Centroamericana José Simeón Cañas (UCA)',
+        period: '2022 – Actualidad',
+        details: 'Actualmente curso el penúltimo ciclo.',
+        icon: GraduationCap,
+      },
+      {
+        degree: 'Bachillerato',
+        institution: 'Colegio Champagnat',
+        period: '2021',
+        details: '',
         icon: GraduationCap,
       },
     ],
     experience: [
       {
         role: 'Desarrollador AL en Business Central',
-        company: 'Departamento de Informatica, Farmacia San Nicolas',
-        period: '1 ano',
+        company: 'Farmacia San Nicolás · Departamento de Informática',
+        period: 'Sep 2025 – Actualidad',
         highlights: [
-          'Responsable de flujos de inventario, traslados de almacen y ubicaciones en transito dentro de Microsoft Dynamics 365 Business Central.',
-          'Desarrollo mejoras solicitadas por contabilidad para automatizar procesos operativos y administrativos.',
-          'Creo reportes RDLC y personalizaciones ERP alineadas con requerimientos del negocio.',
-          'Implemente un flujo completo de traslado de inventario entre salas de venta, bodegas y ubicaciones en transito.',
+          'Reconstruí el módulo de traslados en AL desde la lógica de negocio hasta la puesta en producción. Reemplacé pasos obsoletos y rediseñé el manejo de inventario en tránsito. Todas las salas de venta y bodegas de la empresa usan el nuevo flujo.',
+          'Desarrollo y personalizo procesos de punto de venta con LS Retail, incluida la facturación electrónica.',
+          'Creo y mantengo reportes RDLC para la operación del ERP y trabajo con SQL Server y endpoints SOAP/XML en Business Central.',
+          'Utilizo Azure DevOps para el control de versiones y los despliegues automatizados de Business Central, y Jira para el seguimiento de tareas.',
         ],
         icon: BriefcaseBusiness,
       },
       {
-        role: 'Administrador Junior de Base de Datos y Desarrollador de Dashboards',
+        role: 'Analista de Datos',
         company: 'Pergaminos',
-        period: 'Rol de corto plazo',
+        period: 'Dic 2024 – Mar 2025',
         highlights: [
-          'Administre informacion de base de datos para procesos de digitalizacion y ubicacion fisica de documentos.',
-          'Entregue dashboards de rendimiento para monitorear productividad del equipo y avance operativo.',
-          'Cree consultas optimizadas para localizar documentos solicitados por piso y anaquel.',
-          'Mejore registros y conexiones de base de datos para facilitar flujos de filtrado y busqueda.',
+          'Trabajé con SQL Server y procesos ETL para preparar datos.',
+          'Desarrollé tableros en Tableau y Google Data Studio para dar seguimiento a la productividad del equipo y al avance de la digitalización.',
         ],
         icon: Database,
       },
     ],
     projects: [
       {
-        name: 'Flujo de Traslado de Inventario',
-        type: 'Extension de Business Central',
-        description:
-          'Proyecto temporal basado en un flujo ERP para traslados entre tiendas, bodegas y ubicaciones en transito.',
-        tech: ['AL', 'Business Central', 'RDLC', 'Automatizacion ERP'],
-        link: '#',
+        name: 'Módulo de traslados de inventario',
+        type: 'Extensión de Business Central',
+        description: 'Reconstrucción del flujo de traslados entre salas de venta y bodegas, incluido el manejo de inventario en tránsito. El módulo se usa en toda la empresa.',
+        tech: ['AL', 'Business Central', 'Inventario'],
       },
       {
-        name: 'Dashboard Operativo',
-        type: 'Datos y Reporteria',
-        description:
-          'Dashboard temporal para monitorear productividad del equipo, avance de digitalizacion y movimiento documental.',
-        tech: ['SQL', 'Dashboards', 'Modelado de datos'],
-        link: '#',
+        name: 'Prototipo de facturación electrónica',
+        type: 'Proyecto universitario en equipo',
+        description: 'Prototipo de ventas y facturación que genera documentos electrónicos en PDF y JSON con códigos QR y simula el envío a Hacienda.',
+        tech: ['JavaScript', 'Facturación electrónica'],
       },
       {
-        name: 'Integracion SOAP XML',
-        type: 'Integracion',
-        description: 'Capa de integracion temporal para comunicacion XML estructurada entre sistemas empresariales.',
-        tech: ['SOAP', 'XML', 'Logica backend'],
-        link: '#',
+        name: 'EliteDriver',
+        type: 'Proyecto en equipo',
+        description: 'Plataforma de alquiler de vehículos con catálogo, consulta de disponibilidad y gestión de reservas. La aplicación se ejecuta con Docker Compose.',
+        tech: ['React', 'Spring Boot', 'PostgreSQL', 'Docker Compose'],
+      },
+      {
+        name: 'Plataforma de servicio social',
+        type: 'Proyecto de software',
+        description: 'Aplicación para registrar y dar seguimiento a horas de servicio social, con una API en Go, una interfaz web y comprobaciones automatizadas en Docker.',
+        tech: ['Go', 'TypeScript', 'PostgreSQL', 'Docker'],
       },
     ],
     certifications: [
@@ -380,12 +324,12 @@ export const localizedContent = {
 } as const;
 
 export const focusAreas = [
-  { label: 'Microsoft Dynamics 365 Business Central', icon: Boxes },
-  { label: 'AL Development', icon: FileCode2 },
-  { label: 'ERP Workflow Automation', icon: PackageCheck },
-  { label: 'SOAP XML Integrations', icon: Code2 },
-  { label: 'Dockerized Applications', icon: ShieldCheck },
-  { label: 'GitHub, Jira & Delivery Flow', icon: LayoutDashboard },
+  { en: 'Business Central and AL', es: 'Business Central y AL', icon: Boxes },
+  { en: 'LS Retail POS and electronic invoicing', es: 'Punto de venta LS Retail y facturación electrónica', icon: FileCode2 },
+  { en: 'SQL Server, ETL and BI', es: 'SQL Server, ETL e inteligencia de negocios', icon: Database },
+  { en: 'SOAP/XML endpoints', es: 'Endpoints SOAP/XML', icon: Code2 },
+  { en: 'Azure DevOps and Jira', es: 'Azure DevOps y Jira', icon: LayoutDashboard },
+  { en: 'AI-assisted CLI development and code review', es: 'Programación con IA vía CLI y revisión de código', icon: Code2 },
 ];
 
 export const sectionIcons = {

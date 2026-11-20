@@ -374,17 +374,10 @@ a {
   line-height: 1.75;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 18px;
-}
-
 .about-card,
 .info-card,
 .project-card,
 .certificate-card,
-.stat-card,
 .focus-card {
   border: 1px solid rgba(221, 233, 247, 0.12);
   border-radius: 8px;
@@ -405,30 +398,6 @@ a {
 
 .about-card p + p {
   margin-top: 16px;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-.stat-card {
-  min-height: 112px;
-  padding: 22px;
-}
-
-.stat-card strong {
-  display: block;
-  color: #fff;
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.stat-card span {
-  display: block;
-  margin-top: 10px;
-  color: rgba(221, 233, 247, 0.7);
 }
 
 .focus-grid {
@@ -590,7 +559,6 @@ a {
   }
 
   .hero-section,
-  .about-grid,
   .section-header {
     grid-template-columns: 1fr;
   }

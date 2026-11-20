@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ArrowUpRight,
   Download,
@@ -31,13 +31,15 @@ function SectionHeader({
 }) {
   return (
     <div className="section-header">
-      <div className="section-kicker">
-        <Icon size={17} />
-        <span>{eyebrow}</span>
-      </div>
+      {eyebrow !== title && (
+        <div className="section-kicker">
+          <Icon size={17} />
+          <span>{eyebrow}</span>
+        </div>
+      )}
       <div className="section-title-row">
         <h2>{title}</h2>
-        <p>{description}</p>
+        {description && <p>{description}</p>}
       </div>
     </div>
   );
@@ -47,26 +49,6 @@ function App() {
   const [language, setLanguage] = useState<Language>('en');
   const content = localizedContent[language];
   const nextLanguage = language === 'en' ? 'es' : 'en';
-
-  const translatedFocusAreas = useMemo(
-    () =>
-      focusAreas.map((area) => {
-        if (language === 'en') {
-          return area;
-        }
-
-        const labels: Record<string, string> = {
-          'AL Development': 'Desarrollo AL',
-          'ERP Workflow Automation': 'Automatizacion de flujos ERP',
-          'SOAP XML Integrations': 'Integraciones SOAP XML',
-          'Dockerized Applications': 'Aplicaciones dockerizadas',
-          'GitHub, Jira & Delivery Flow': 'GitHub, Jira y flujo de entrega',
-        };
-
-        return { ...area, label: labels[area.label] ?? area.label };
-      }),
-    [language],
-  );
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -82,8 +64,8 @@ function App() {
           </a>
           <div className="nav-links">
             <a href="#about">{content.nav.about}</a>
-            <a href="#education">{content.nav.education}</a>
             <a href="#experience">{content.nav.experience}</a>
+            <a href="#education">{content.nav.education}</a>
             <a href="#projects">{content.nav.projects}</a>
             <a href="#certifications">{content.nav.certifications}</a>
           </div>
@@ -162,49 +144,17 @@ function App() {
             description={content.sections.about.description}
             icon={Sparkles}
           />
-          <div className="about-grid">
-            <div className="about-card">
-              {content.about.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <div className="stats-grid">
-              {content.stats.map((stat) => (
-                <div className="stat-card" key={stat.label}>
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="focus-grid">
-            {translatedFocusAreas.map(({ label, icon: Icon }) => (
-              <div className="focus-card" key={label}>
-                <Icon size={20} />
-                <span>{label}</span>
-              </div>
+          <div className="about-card">
+            {content.about.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-        </section>
-
-        <section id="education" className="content-section">
-          <SectionHeader
-            eyebrow={content.sections.education.eyebrow}
-            title={content.sections.education.title}
-            description={content.sections.education.description}
-            icon={sectionIcons.education}
-          />
-          <div className="card-grid single">
-            {content.education.map(({ degree, institution, period, details, icon: Icon }) => (
-              <article className="info-card" key={degree}>
-                <Icon className="card-icon" size={24} />
-                <div>
-                  <span className="card-period">{period}</span>
-                  <h3>{degree}</h3>
-                  <p className="card-subtitle">{institution}</p>
-                  <p>{details}</p>
-                </div>
-              </article>
+          <div className="focus-grid">
+            {focusAreas.map(({ en, es, icon: Icon }) => (
+              <div className="focus-card" key={en}>
+                <Icon size={20} />
+                <span>{language === 'en' ? en : es}</span>
+              </div>
             ))}
           </div>
         </section>
@@ -235,6 +185,28 @@ function App() {
           </div>
         </section>
 
+        <section id="education" className="content-section">
+          <SectionHeader
+            eyebrow={content.sections.education.eyebrow}
+            title={content.sections.education.title}
+            description={content.sections.education.description}
+            icon={sectionIcons.education}
+          />
+          <div className="card-grid single">
+            {content.education.map(({ degree, institution, period, details, icon: Icon }) => (
+              <article className="info-card" key={degree}>
+                <Icon className="card-icon" size={24} />
+                <div>
+                  <span className="card-period">{period}</span>
+                  <h3>{degree}</h3>
+                  <p className="card-subtitle">{institution}</p>
+                  {details && <p>{details}</p>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="projects" className="content-section">
           <SectionHeader
             eyebrow={content.sections.projects.eyebrow}
@@ -242,7 +214,7 @@ function App() {
             description={content.sections.projects.description}
             icon={sectionIcons.projects}
           />
-          <div className="card-grid three">
+          <div className="card-grid">
             {content.projects.map((project) => (
               <article className="project-card" key={project.name}>
                 <span className="card-period">{project.type}</span>
@@ -253,10 +225,6 @@ function App() {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-                <a className={`card-link ${project.link === '#' ? 'is-disabled' : ''}`} href={project.link}>
-                  {content.actions.viewProject}
-                  <ArrowUpRight size={16} />
-                </a>
               </article>
             ))}
           </div>
@@ -285,7 +253,7 @@ function App() {
                 <h3>{certification.name}</h3>
                 <p>{certification.issuer}</p>
                 <a
-                  className={`card-link ${certification.link === '#' ? 'is-disabled' : ''}`}
+                  className="card-link"
                   href={certification.link}
                   target="_blank"
                   rel="noreferrer"
