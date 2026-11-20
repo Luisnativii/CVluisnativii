@@ -378,7 +378,6 @@ a {
 .info-card,
 .project-card,
 .certificate-card,
-.technology-card,
 .github-card {
   border: 1px solid rgba(221, 233, 247, 0.12);
   border-radius: 8px;
@@ -401,53 +400,93 @@ a {
   margin-top: 16px;
 }
 
-.technology-grid {
+.technology-groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
   align-items: start;
-  gap: 12px;
+  gap: 16px;
 }
 
-.technology-card summary {
+.technology-group {
+  position: relative;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid rgba(221, 233, 247, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.technology-group h3 {
+  margin: 0 0 12px;
+  color: #f6d6aa;
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.technology-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.technology-card {
+  max-width: 100%;
+}
+
+.technology-card button {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-height: 60px;
-  padding: 16px;
-  color: rgba(221, 233, 247, 0.82);
-  font-weight: 700;
-  cursor: pointer;
+  gap: 7px;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid rgba(128, 185, 213, 0.22);
+  border-radius: 8px;
+  background: rgba(128, 185, 213, 0.07);
+  text-align: left;
+  color: #dde9f7;
+  font-size: 0.85rem;
+  font-weight: 650;
 }
 
-.technology-card summary::-webkit-details-marker {
-  display: none;
+.technology-card button:hover,
+.technology-card button:focus {
+  border-color: #80b9d5;
+  background: rgba(128, 185, 213, 0.15);
 }
 
-.technology-card summary::after {
-  content: '';
-  width: 8px;
-  height: 8px;
-  margin-left: auto;
-  flex: 0 0 auto;
-  border: solid currentColor;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+.technology-tooltip {
+  position: absolute;
+  z-index: 5;
+  inset: auto 12px calc(100% - 5px);
+  padding: 10px 13px;
+  border: 1px solid rgba(128, 185, 213, 0.5);
+  border-radius: 8px;
+  background: #162432;
+  box-shadow: 0 8px 24px #0008;
+  color: #eef6ff;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  clip-path: inset(50%);
+  pointer-events: none;
 }
 
-.technology-card[open] summary::after {
-  transform: rotate(225deg);
+@media (hover: hover) {
+  .technology-card button:hover + .technology-tooltip {
+    clip-path: none;
+  }
 }
 
-.technology-card summary:hover,
-.technology-card[open] summary {
-  color: #fff;
+.technology-card button:focus-visible + .technology-tooltip {
+  clip-path: none;
 }
 
-.technology-card p {
-  margin: 0;
-  padding: 0 16px 16px;
-  color: rgba(221, 233, 247, 0.76);
-  line-height: 1.65;
+@media (hover: none) {
+  .technology-card button:focus + .technology-tooltip {
+    clip-path: none;
+  }
 }
 
 .technology-card svg,
@@ -458,10 +497,29 @@ a {
 
 .github-card {
   padding: clamp(14px, 3vw, 26px);
+  border-color: rgba(62, 220, 133, 0.24);
+  background: radial-gradient(ellipse at top left, #16352b, transparent 62%), #10171c;
 }
 
-.github-card > p {
-  margin: 0 0 16px;
+.github-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px clamp(20px, 5vw, 64px);
+  margin-bottom: 20px;
+}
+
+.github-stat {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  color: #c5dfd1;
+}
+
+.github-stat strong {
+  color: #74f6a8;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
 }
 
 .github-scroll {
@@ -493,14 +551,17 @@ a {
   display: block;
   width: 100%;
   aspect-ratio: 1;
-  border-radius: 3px;
-  background: #252d3b;
+  border-radius: 50%;
+  background: #243039;
 }
 
-.github-cell[data-level='1'] { background: #155240; }
-.github-cell[data-level='2'] { background: #207d5d; }
-.github-cell[data-level='3'] { background: #32ae7b; }
-.github-cell[data-level='4'] { background: #64dba2; }
+.github-cell[data-level='1'] { background: #208d54; }
+.github-cell[data-level='2'] { background: #34bc6c; }
+.github-cell[data-level='3'] { background: #54e890; }
+.github-cell[data-level='4'] {
+  background: #83ffad;
+  box-shadow: 0 0 9px #52e99180;
+}
 
 .github-footer,
 .github-legend {

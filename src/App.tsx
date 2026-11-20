@@ -232,7 +232,7 @@ function App() {
           <SectionHeader
             eyebrow={technologyTitle}
             title={technologyTitle}
-            description={language === 'es' ? 'Selecciona una tecnología para ver cómo la he usado.' : 'Select a technology to see how I have used it.'}
+            description={language === 'es' ? 'Pasa el cursor o toca una tecnología para ver cómo la he usado.' : 'Hover over or tap a technology to see how I have used it.'}
             icon={Code2}
           />
           <Technologies language={language} />
