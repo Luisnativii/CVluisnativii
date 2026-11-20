@@ -132,12 +132,6 @@ export const localizedContent = {
         description: 'Application for recording and tracking social service hours, with a Go API, a web interface, and automated checks in Docker.',
         tech: ['Go', 'TypeScript', 'PostgreSQL', 'Docker'],
       },
-      {
-        name: 'Professional portfolio',
-        type: 'Personal project',
-        description: 'Bilingual portfolio built with React and TypeScript and automatically deployed to Vercel from GitHub.',
-        tech: ['React', 'TypeScript', 'Vite', 'Vercel'],
-      },
     ],
     certifications: [
       {
@@ -284,12 +278,6 @@ export const localizedContent = {
         type: 'Proyecto de software',
         description: 'Aplicación para registrar y dar seguimiento a horas de servicio social, con una API en Go, una interfaz web y comprobaciones automatizadas en Docker.',
         tech: ['Go', 'TypeScript', 'PostgreSQL', 'Docker'],
-      },
-      {
-        name: 'Portafolio profesional',
-        type: 'Proyecto personal',
-        description: 'Portafolio bilingüe desarrollado con React y TypeScript, con despliegue automático en Vercel desde GitHub.',
-        tech: ['React', 'TypeScript', 'Vite', 'Vercel'],
       },
     ],
     certifications: [
