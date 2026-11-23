@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Expand, X } from 'lucide-react';
 import type { Language } from './data';
-import { portfolio } from './portfolio';
+import { portfolio } from './portfolio-projects';
 
 const labels = {
   es: {

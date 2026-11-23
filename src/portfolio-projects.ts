@@ -80,26 +80,4 @@ export const portfolio: PortfolioProject[] = [
     technologies: ['Go', 'Chi', 'React', 'TypeScript', 'Vite', 'Tailwind CSS', 'TanStack Query', 'PostgreSQL', 'pgx', 'sqlc', 'Goose', 'OpenAPI', 'Nginx', 'Docker Compose'],
     inProgress: true,
   },
-  {
-    id: 'cv',
-    name: 'Luis Nativi Claude',
-    type: { es: 'CV y portafolio web', en: 'Web résumé and portfolio' },
-    description: {
-      es: 'CV bilingüe con experiencia, formación, proyectos y certificaciones. Incluye descarga en PDF y un calendario de contribuciones respaldado por una función que consulta GitHub.',
-      en: 'Bilingual résumé covering experience, education, projects, and certifications. It includes a PDF download and a contribution calendar backed by a function that queries GitHub.',
-    },
-    capture: { es: 'Portada local del CV bilingüe', en: 'Local bilingual résumé homepage' },
-    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Lucide', 'Node.js', 'Docker Compose', 'Vercel'],
-  },
-  {
-    id: 'mkdocs',
-    name: 'MkDocs · CV Luis Nativi',
-    type: { es: 'Documentación técnica', en: 'Technical documentation' },
-    description: {
-      es: 'Sitio independiente con guías sobre arquitectura, instalación, personalización, Docker, despliegue y solución de problemas del CV. Incluye diagramas y un flujo automatizado de publicación.',
-      en: 'Documentation site with guides to résumé architecture, setup, customization, Docker, deployment, and troubleshooting. It includes diagrams and an automated publishing workflow.',
-    },
-    capture: { es: 'Portada del sitio de documentación', en: 'Documentation homepage' },
-    technologies: ['Python', 'MkDocs', 'Material for MkDocs', 'Markdown', 'PyMdown Extensions', 'Mermaid', 'GitHub Actions', 'GitHub Pages'],
-  },
 ];

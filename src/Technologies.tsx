@@ -1,6 +1,6 @@
 import {
   Atom, Boxes, Braces, ChartColumn, Cloud, Code2, CreditCard, Database,
-  FileCode2, GitBranch, Leaf, Plug, ShoppingCart, Terminal,
+  FileCode2, GitBranch, Globe, Leaf, Plug, Server, ShoppingCart, Terminal,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { Language } from './data';
@@ -60,13 +60,24 @@ const groups: { title: Translation; items: Technology[] }[] = [
     ],
   },
   {
-    title: { es: 'Desarrollo y despliegue', en: 'Development and deployment' },
+    title: { es: 'Despliegue e infraestructura', en: 'Deployment and infrastructure' },
     items: [
       { name: 'Docker · Docker Compose', icon: Boxes, es: 'Los utilicé para ejecutar juntos el frontend, la API y la base de datos de EliteDriver.', en: 'I used them to run the EliteDriver frontend, API, and database together.' },
+      { name: 'Vercel', icon: Cloud, es: 'Despliego este sitio desde GitHub y lo compilo con Vite.', en: 'I build this site with Vite and deploy it from GitHub.' },
+      { name: 'Cloudflare', icon: Globe, es: 'Administración de dominios públicos y registros DNS.', en: 'Public domain and DNS record management.' },
+      { name: 'Railway', icon: Database, es: 'Aprovisionamiento de bases de datos PostgreSQL para aplicaciones.', en: 'Provisioning PostgreSQL databases for applications.' },
+      { name: 'OVHcloud · Cloudflare Tunnel', icon: Server, es: 'Despliegue de aplicaciones en VPS de OVHcloud y publicación mediante Cloudflare Tunnel.', en: 'Deploying applications on OVHcloud VPS instances and publishing them through Cloudflare Tunnel.' },
+      { name: 'Kubernetes', icon: Boxes, es: 'Conocimientos de despliegue de aplicaciones en entornos locales de uso interno.', en: 'Knowledge of application deployment in local Kubernetes environments for internal use.' },
+    ],
+  },
+  {
+    title: { es: 'Prácticas de desarrollo', en: 'Development practices' },
+    items: [
+      { name: 'Git · GitHub', icon: GitBranch, es: 'Control de cambios con Git, ramas y revisión mediante pull requests en GitHub.', en: 'Version control with Git, branches, and pull request reviews on GitHub.' },
       { name: 'Azure DevOps', icon: GitBranch, es: 'Lo uso para versionar extensiones y automatizar despliegues de Business Central.', en: 'I use it to version extensions and automate Business Central deployments.' },
       { name: 'Jira', icon: Boxes, es: 'Lo uso para dar seguimiento a las tareas del equipo.', en: 'I use it to track team tasks.' },
-      { name: 'Vite · Vercel', icon: Cloud, es: 'Compilo el sitio con Vite y lo despliego en Vercel desde GitHub.', en: 'I build the site with Vite and deploy it to Vercel from GitHub.' },
-      { name: 'Codex CLI', icon: Terminal, es: 'Uso IA desde la terminal para programar y revisar cambios de código.', en: 'I use AI from the terminal to write and review code changes.' },
+      { name: 'Clean Code', icon: Code2, es: 'Nombres claros, funciones con una responsabilidad definida y refactorización para facilitar el mantenimiento.', en: 'Clear naming, single-responsibility functions, and refactoring for maintainability.' },
+      { name: 'Codex CLI', icon: Terminal, es: 'Uso agentes de IA para apoyar la programación y revisar cambios con criterio propio.', en: 'I use AI coding agents to assist with development and review their changes before adoption.' },
     ],
   },
 ];

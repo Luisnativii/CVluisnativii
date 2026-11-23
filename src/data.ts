@@ -65,7 +65,7 @@ export const localizedContent = {
     },
     about: [
       'At Farmacia San Nicolás, I rebuilt the inventory transfer workflow used by all stores and warehouses. My work also covers LS Retail point-of-sale development and electronic invoicing.',
-      'My background includes data analysis with SQL Server, ETL, and BI dashboards. I use AI-assisted CLI tools for development and code review.',
+      'My background includes data analysis with SQL Server, ETL, and BI dashboards. I use AI coding agents to assist with development and code review.',
     ],
     education: [
       {
@@ -113,6 +113,12 @@ export const localizedContent = {
         type: 'Business Central extension',
         description: 'Rebuilt the workflow for moving inventory between stores and warehouses, including in-transit stock handling. The module is used across the company.',
         tech: ['AL', 'Business Central', 'Inventory'],
+      },
+      {
+        name: 'Point of Sale and Electronic Invoicing',
+        type: 'Business Central and LS Retail',
+        description: 'Development and customization of retail point-of-sale workflows, including electronic invoicing for Farmacia San Nicolás.',
+        tech: ['AL', 'Business Central', 'LS Retail'],
       },
       {
         name: 'Electronic Invoicing Prototype',
@@ -200,7 +206,7 @@ export const localizedContent = {
     },
     about: [
       'En Farmacia San Nicolás reconstruí el flujo de traslados de inventario que utilizan todas las salas de venta y bodegas. También trabajo en el desarrollo para puntos de venta con LS Retail y en facturación electrónica.',
-      'Mi experiencia incluye análisis de datos con SQL Server, procesos ETL y tableros de inteligencia de negocios. Uso herramientas de IA en la terminal para apoyar la programación y la revisión de código.',
+      'Mi experiencia incluye análisis de datos con SQL Server, procesos ETL y tableros de inteligencia de negocios. Uso agentes de IA para apoyar la programación y la revisión de código.',
     ],
     education: [
       {
@@ -248,6 +254,12 @@ export const localizedContent = {
         type: 'Extensión de Business Central',
         description: 'Reconstrucción del flujo de traslados entre salas de venta y bodegas, incluido el manejo de inventario en tránsito. El módulo se usa en toda la empresa.',
         tech: ['AL', 'Business Central', 'Inventario'],
+      },
+      {
+        name: 'Punto de venta y facturación electrónica',
+        type: 'Business Central y LS Retail',
+        description: 'Desarrollo y personalización de procesos de punto de venta, incluida la facturación electrónica para Farmacia San Nicolás.',
+        tech: ['AL', 'Business Central', 'LS Retail'],
       },
       {
         name: 'Prototipo de facturación electrónica',

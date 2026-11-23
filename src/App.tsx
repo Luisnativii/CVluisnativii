@@ -207,14 +207,10 @@ function App() {
 
         <section id="projects" className="content-section">
           <SectionHeader
-            title={language === 'es' ? 'Portafolio de aplicativos' : 'Application portfolio'}
-            description={language === 'es' ? 'Capturas de los aplicativos. Las versiones de este portafolio están reservadas para un futuro despliegue.' : 'Screenshots of the applications. The versions featured here are reserved for a future release.'}
+            title={content.sections.projects.title}
+            description={content.sections.projects.description}
             icon={sectionIcons.projects}
           />
-          <Portfolio language={language} />
-          <h3 className="portfolio-extra-title">
-            {language === 'es' ? 'Otros proyectos' : 'Other projects'}
-          </h3>
           <div className="card-grid">
             {content.projects.map((project) => (
               <article className="project-card" key={project.name}>
@@ -230,6 +226,10 @@ function App() {
               </article>
             ))}
           </div>
+          <h3 className="portfolio-extra-title">
+            {language === 'es' ? 'Portafolio de aplicativos' : 'Application portfolio'}
+          </h3>
+          <Portfolio language={language} />
         </section>
 
         <section id="technologies" className="content-section">
