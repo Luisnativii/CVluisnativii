@@ -120,18 +120,6 @@ export const localizedContent = {
         description: 'Sales and invoicing prototype that generates electronic documents in PDF and JSON with QR codes and simulates submission to the tax authority.',
         tech: ['JavaScript', 'Electronic Invoicing'],
       },
-      {
-        name: 'EliteDriver',
-        type: 'Team project',
-        description: 'Vehicle rental platform with a catalog, availability checks, and reservations. It runs with Docker Compose and integrates Wompi for card payments in test mode.',
-        tech: ['React', 'Spring Boot', 'PostgreSQL', 'Docker Compose', 'Wompi'],
-      },
-      {
-        name: 'Social Service Hours Platform',
-        type: 'Software project',
-        description: 'Application for recording and tracking social service hours, with a Go API, a web interface, and automated checks in Docker.',
-        tech: ['Go', 'TypeScript', 'PostgreSQL', 'Docker'],
-      },
     ],
     certifications: [
       {
@@ -266,18 +254,6 @@ export const localizedContent = {
         type: 'Proyecto universitario en equipo',
         description: 'Prototipo de ventas y facturación que genera documentos electrónicos en PDF y JSON con códigos QR y simula el envío a Hacienda.',
         tech: ['JavaScript', 'Facturación electrónica'],
-      },
-      {
-        name: 'EliteDriver',
-        type: 'Proyecto en equipo',
-        description: 'Plataforma de alquiler de vehículos con catálogo, consulta de disponibilidad y gestión de reservas. Se ejecuta con Docker Compose e integra Wompi para pagos con tarjeta en modo de pruebas.',
-        tech: ['React', 'Spring Boot', 'PostgreSQL', 'Docker Compose', 'Wompi'],
-      },
-      {
-        name: 'Plataforma de servicio social',
-        type: 'Proyecto de software',
-        description: 'Aplicación para registrar y dar seguimiento a horas de servicio social, con una API en Go, una interfaz web y comprobaciones automatizadas en Docker.',
-        tech: ['Go', 'TypeScript', 'PostgreSQL', 'Docker'],
       },
     ],
     certifications: [

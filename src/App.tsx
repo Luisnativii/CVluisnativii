@@ -19,6 +19,7 @@ import {
   sectionIcons,
 } from './data';
 import { GitHubActivity } from './GitHubActivity';
+import { Portfolio } from './Portfolio';
 import { Technologies } from './Technologies';
 
 function SectionHeader({
@@ -206,10 +207,14 @@ function App() {
 
         <section id="projects" className="content-section">
           <SectionHeader
-            title={content.sections.projects.title}
-            description={content.sections.projects.description}
+            title={language === 'es' ? 'Portafolio de aplicativos' : 'Application portfolio'}
+            description={language === 'es' ? 'Capturas de los aplicativos. Las versiones de este portafolio están reservadas para un futuro despliegue.' : 'Screenshots of the applications. The versions featured here are reserved for a future release.'}
             icon={sectionIcons.projects}
           />
+          <Portfolio language={language} />
+          <h3 className="portfolio-extra-title">
+            {language === 'es' ? 'Otros proyectos' : 'Other projects'}
+          </h3>
           <div className="card-grid">
             {content.projects.map((project) => (
               <article className="project-card" key={project.name}>
